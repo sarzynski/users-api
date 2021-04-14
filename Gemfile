@@ -20,7 +20,7 @@ gem 'puma', '~> 5.0'
 # gem 'image_processing', '~> 1.2'
 gem 'rubocop'
 gem 'ruby-progressbar'
-
+gem 'grape'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
