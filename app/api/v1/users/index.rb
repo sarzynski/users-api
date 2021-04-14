@@ -5,10 +5,10 @@ module V1
       format :json
       prefix :api
 
-      resource :books do
+      resource :users do
         desc 'Return all users'
         get do
-          users = User.all
+          users = ::UserServices::Sort.call(User.all)
           present users
         end
       end
