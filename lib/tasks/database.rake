@@ -1,15 +1,14 @@
 namespace :database do
-  desc 'Drop database, create and migrate'
+  desc 'Drop database, create, migrate and seed'
   task setup: :environment do
     progressbar = ProgressBar.create
     `rails db:drop`
-    sleep 5
-    progressbar.progress = 33
+    progressbar.progress = 20
     `rails db:create`
-    sleep 5
-    progressbar.progress = 66
+    progressbar.progress = 60
     `rails db:migrate`
-    sleep 5
+    progressbar.progress = 80
+    `rails db:seed`
     progressbar.progress = 100
   end
 
@@ -18,7 +17,6 @@ namespace :database do
     progressbar = ProgressBar.create
     `rails generate migration AddEmailToUsers email:string`
     progressbar.progress = 50
-    sleep 5
     `rails db:migrate`
     progressbar.progress = 100
   end
