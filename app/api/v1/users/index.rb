@@ -8,7 +8,7 @@ module V1
       resource :users do
         desc 'Return all users'
         get do
-          users = ::UserServices::Sort.call(User.all)
+          users = ::UserServices::Sort.call(User.all).decorate
           present users
         end
       end
