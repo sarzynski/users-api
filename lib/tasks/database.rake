@@ -1,6 +1,6 @@
 namespace :database do
   desc 'Drop database, create, migrate and seed'
-  task :restart do
+  task restart: :environment do
     progressbar = ProgressBar.create
     `rails db:drop`
     progressbar.progress = 20
@@ -13,7 +13,7 @@ namespace :database do
   end
 
   desc 'Add email field to users table'
-  task :add_email do
+  task add_email: :environment do
     progressbar = ProgressBar.create
     `rails generate migration AddEmailToUsers email:string`
     progressbar.progress = 50
